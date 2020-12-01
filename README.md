@@ -1,8 +1,9 @@
-# Algorithms and Data Structures in Python
+# Simple Document Classification using Multi Class Logistic Regression & SVM Soft Margin from scratch
 ## Description
-This repository contains a Python implementation of basic sorting algorithms, as well as an implementation of trees, graphs and some relevant techniques and algorithms to manipulate those data structures. It will also include some basic problems of Dynamic Programming, and how can one think about a problem in order to solve it efficiently. More precisely, this involves the following algorithms: 
+This mini-project contains an implementation from scratch of some Multi-Class Document Classification Algorithms. The data is already cleaned, and doesn't need any further pre-processing, it was encoded using Tf-idf.<br />
+**Firstly**, I implemented the Logistic Regression algorithm with One-vs-All strategy to adapt the algorithm for the multi-classification task. I used the Momentum with SGD optimizer for optimizing the Binary Cross-Entropy loss used to get the optimal weight matrix.<br />
+**Secondly**, I implemented Multi-Class SVM with the same strategy as Logistic Regression, and since it's soft margin SVM, I used the same previous optimizer to optimize the L2 reguralized Hinge loss. The repository contains the following files & directories: <br />
 
-- **Sorting algorithms:** Selection sort, Bubble sort, Insertion sort, Merging sort, Counting sort, Quicksort.
-- **Trees & Graphs:** OOP implementation, Printing a tree, Inserting an element in a binary tree, Searching in a binary tree, Min/Max in a binary tree, Deleting elements in a tree, Breadth First Search (BFS), Depth First Search (DFS), Dijkstra's Shortest Path algorithm.
-- **Dynamic Programming:** The coin change problem, Stock maximise, etc..
-- **Others:** Problems involving lists, hashmaps, arrays, sets, etc..
+- **main.ipynb:** A Jupyter notebook where the main functions of the project are called, and where results are displayed.
+- **Loss directory:** It contains an implementation of the various loss functions mentioned above, and their corresponding gradient calculus.
+- **ML_Algos:** This directory contains an implementation of the various ML algorithms mentioned above.

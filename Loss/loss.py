@@ -14,6 +14,7 @@
 ################################################################################
 import numpy as np
 from numpy.linalg import norm
+import matplotlib.pyplot as plt
 
 ################################################################################
 #                               Main Code                                      #
@@ -62,3 +63,27 @@ def l2_hinge_loss(X, Y, W, C, N):
     grad = l * W + 1 / N * sum([-Y[i] * X[:, i:i + 1] if Y[i] * np.matmul(W.T, X[:, i:i + 1]) < 1 else 0 for i in range(N)])
 
     return loss, grad
+
+
+def visualizer(loss, accuracy, n_epochs):
+    """
+    Returns the plot of Training/Validation Loss and Accuracy.
+    :param loss: A list defaultdict with 2 keys "train" and "val".
+    :param accuracy: A list defaultdict with 2 keys "train" and "val".
+    :param n_epochs: Number of Epochs during training.
+    :return:
+    """
+    fig, axs = plt.subplots(1, 2, figsize=(20, 10))
+    x = np.arange(0, n_epochs, 1)
+    axs[0].plot(x, loss['train'], 'b')
+    axs[0].plot(x, loss['val'], 'r')
+    axs[1].plot(x, accuracy['train'], 'b')
+    axs[1].plot(x, accuracy['val'], 'r')
+
+    axs[0].set_xlabel("Epochs")
+    axs[0].set_ylabel("Loss value")
+    axs[1].set_xlabel("Epochs")
+    axs[1].set_ylabel("Accuracy value (in %)")
+
+    axs[0].legend(['Training loss', 'Validation loss'])
+    axs[1].legend(['Training accuracy', 'Validation accuracy'])

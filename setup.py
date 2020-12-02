@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="packages-aahouzi",
-    version="0.0.1",
+    name="simple-doc-aahouzi",
+    version="0.0.2",
     author="Anas Ahouzi",
     author_email="ahouzi2000@hotmail.fr",
     description="Computes different Loss/Gradient functions",

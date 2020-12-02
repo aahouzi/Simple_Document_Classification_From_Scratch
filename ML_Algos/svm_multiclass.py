@@ -41,7 +41,7 @@ class SVM:
         :param n_class: Number of classes.
         :param F: Number of features.
         :param C: Number of observations allowed to be in the margin area (The only parameter in SVM
-        responsible for the variance-bias trade-off)
+        responsible for the variance-bias trade-off).
         :param n_epochs: Number of Epochs.
         :param info: 1 to show training loss & accuracy over epochs, 0 otherwise.
         """
@@ -77,6 +77,7 @@ class SVM:
     def momentum(self, y_relab):
         """
         This function is an implementation of the momentum with SGD optimization algorithm.
+
         :param y_relab: A binary label vector.
         :return: A weight vector, and history of loss/accuracy over epochs.
         """
@@ -135,6 +136,7 @@ class SVM:
         """
         This function trains the model using One-vs-All strategy, and returns a weight
         matrix, to be used during inference.
+
         :return: A weight matrix of size (n_class, F+1), where F is the number of features,
         and n_class is the number of classes to predict.
         """
@@ -156,7 +158,9 @@ class SVM:
         """
         This function is used to test the model over new testing data samples, using
         the weights matrix obtained after training.
-        :param weights:
+
+        :param weights: A weight matrix of size (n_class, F+1), where F is the number of features,
+        and n_class is the number of classes to predict.
         :return:
         """
 

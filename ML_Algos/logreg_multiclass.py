@@ -73,7 +73,8 @@ class LogisticRegression:
         """
         This function is an implementation of the momentum with SGD optimization algorithm, and it's
         used to find the optimal weight vector of the logistic regression algorithm.
-        :return:
+        :param y_relab: A binary label vector.
+        :return: A weight vector, and history of loss/accuracy over epochs.
         """
 
         # Initialize weights and velocity vectors

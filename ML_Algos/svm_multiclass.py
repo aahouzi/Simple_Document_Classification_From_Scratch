@@ -61,7 +61,7 @@ class SVM:
 
     def relabel(self, label):
         """
-        This function takes a class, and relabels the training label vector into a binary class,
+        This function takes a class, and relabels the training label vector into a binary class (1 or -1),
         it's used to apply One vs All strategy.
 
         :param label: The class to relabel.
@@ -70,7 +70,7 @@ class SVM:
 
         y = self.y_train.tolist()
         n = len(y)
-        y_new = [1 if y[i] == label else 0 for i in range(n)]
+        y_new = [1 if y[i] == label else -1 for i in range(n)]
 
         return np.array(y_new).reshape(-1, 1)
 
@@ -83,8 +83,8 @@ class SVM:
         """
 
         # Initialize weights and velocity vectors
-        W = np.zeros((self. F +1, 1))
-        V = np.zeros((self. F +1, 1))
+        W = np.zeros((self.F+1, 1))
+        V = np.zeros((self.F+1, 1))
         loss = defaultdict(list)
         accuracy = defaultdict(list)
 
@@ -98,7 +98,7 @@ class SVM:
             start = time.time()
             train_loss = 0
             # Compute the loss and gradient over mini-batches of the training set
-            for i in range(0, n_train - self.mb + 1):
+            for i in range(0, n_train-self.mb+1):
                 train_loss, grad = l2_hinge_loss(x_train[i: i+self.mb, :].T, y_train[i: i + self.mb], W, self.C, self.mb)
                 V = self.beta * V + grad
                 W = W - self.alpha * V
